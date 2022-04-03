@@ -39,6 +39,6 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
       - name: Run tests
-        run: pytest -vv
+        run: pytest -vvv --durations=0
         env:
           SYSTEM_ENV: GITHUB_WORKFLOW
