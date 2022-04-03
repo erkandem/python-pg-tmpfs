@@ -4,9 +4,9 @@ name: Django CI/CD Workflow
 # triggers for our workflow
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
   pull_request:
-    branches: [ main ]
+    branches: [ master ]
 
 jobs:
   run_tests:
