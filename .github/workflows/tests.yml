@@ -1,3 +1,13 @@
+# name of our workflow
+name: Django CI/CD Workflow
+
+# triggers for our workflow
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
 jobs:
   run_tests:
     if: github.ref == 'refs/heads/develop'
