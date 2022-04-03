@@ -7,6 +7,13 @@ on:
     branches: [ master ]
   pull_request:
     branches: [ master ]
+env:
+  SQL_DATABASE: sampleapp
+  SQL_USER: postgres
+  SQL_PASSWORD: postgres
+  SQL_HOST: localhost
+  SQL_PORT: 5432
+  SQL_ENGINE: django.db.backends.postgresql
 
 jobs:
   run_tests:
