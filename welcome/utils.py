@@ -1,4 +1,6 @@
+from django.contrib.auth import get_user_model
 from django.db import connection
+
 
 
 def add(x, y):
@@ -14,3 +16,5 @@ def db_add(x, y):
         )
         row = cursor.fetchone()[0]
     return row
+
+

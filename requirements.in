@@ -4,3 +4,5 @@ pytest
 psycopg2-binary
 django-environ
 pytest-django
+django-extensions
+ipython
