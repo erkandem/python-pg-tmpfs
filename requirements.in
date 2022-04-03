@@ -1,0 +1,6 @@
+pip-tools
+django
+pytest
+psycopg2-binary
+django-environ
+pytest-django

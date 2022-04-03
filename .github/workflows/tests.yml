@@ -1,0 +1,30 @@
+jobs:
+  run_tests:
+    if: github.ref == 'refs/heads/develop'
+    name: Run Django Tests
+    runs-on: ubuntu-latest
+    services:
+      db:
+        image: postgres:14-alpine
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: sampleapp
+        ports:
+          - 5432:5432
+        options: --mount type=tmpfs,destination=/var/lib/postgresql/data --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+        with:
+          ref: 'refs/heads/develop'
+      - name: Set up Python 3.8.5
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.8.5
+      - name: Install dependencies
+        run: pip install -r app/requirements.txt
+      - name: Run tests
+        run: pytest
+        env:
+          SYSTEM_ENV: GITHUB_WORKFLOW
